@@ -2,7 +2,8 @@ import cv2
 import numpy as np 
   
 # Read image. 
-#img = cv2.imread('eyes3.jpg', cv2.IMREAD_COLOR) 
+#img = cv2.imread('eyes3.jpg', cv2.IMREAD_COLOR)
+# This is a test
 
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH,1920)
