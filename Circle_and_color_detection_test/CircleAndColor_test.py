@@ -8,7 +8,7 @@
 #												   #
 # auther:       Phillip Bomholtz                   #
 # created:      26-02-2020						   #
-# last updated: 26-02-2020						   #
+# last updated: 27-02-2020						   #
 #												   #
 ####################################################
 
@@ -47,6 +47,8 @@ while(True):
 			a, b, r = pt[0], pt[1], pt[2]  #circle coordinates
 			cv2.circle(frame, (a, b), r+10, (0, 255, 255), 2)  #draw area around with radius r
 			cv2.circle(frame, (a, b), 1, (100, 0, 100), 3)  #draw dot im middle
+
+
 	cv2.imshow('circles',frame)
 	cv2.imshow('blue color',res)
 
