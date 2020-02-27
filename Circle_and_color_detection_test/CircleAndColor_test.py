@@ -27,9 +27,14 @@ while(True):
 	ret, frame = cap.read() #read from camera and store
 	lul = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  #greyscale
 	lul2 = cv2.blur(lul, (3, 3)) 
-	detected_circles = cv2.HoughCircles(lul2,  
-                   cv2.HOUGH_GRADIENT, 1, 20, param1 = 50, 
-               param2 = 30, minRadius = 1, maxRadius = 40) #look for circles
+	detected_circles = cv2.HoughCircles(lul2, cv2.HOUGH_GRADIENT, 1, 20, param1 = 50, param2 = 30, minRadius = 1, maxRadius = 40) #look for circles
+	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV) 
+	lower_red = np.array([110,50,50]) 
+	upper_red = np.array([130,255,255])
+	mask = cv2.inRange(hsv, lower_red, upper_red) 
+	res = cv2.bitwise_and(frame,frame, mask= mask)
+
+
 
 	#if any circles
 	if detected_circles is not None:
@@ -41,8 +46,8 @@ while(True):
 			a, b, r = pt[0], pt[1], pt[2]  #circle coordinates
 			cv2.circle(frame, (a, b), r+10, (0, 255, 255), 2)  #draw area around with radius r
 			cv2.circle(frame, (a, b), 1, (100, 0, 100), 3)  #draw dot im middle
-
-	cv2.imshow('frame',frame)
+	cv2.imshow('circles',res)
+	cv2.imshow('blue color',res)
 
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
