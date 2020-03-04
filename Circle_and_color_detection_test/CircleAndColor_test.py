@@ -2,13 +2,13 @@
 ####################################################
 #          Test for tennisball collectror          #
 #                                                  #
-# version 1.0                                      #
+# version 1.1                                      #
 # description: A test version for visual feedback  #
 #              circle and color reconition.        #
 #												   #
 # auther:       Phillip Bomholtz                   #
 # created:      26-02-2020						   #
-# last updated: 27-02-2020						   #
+# last updated: 04-03-2020						   #
 #												   #
 ####################################################
 
@@ -30,8 +30,8 @@ while(True):
 	detected_circles = cv2.HoughCircles(lul2, cv2.HOUGH_GRADIENT, 1, 20, param1 = 50, param2 = 30, minRadius = 1, maxRadius = 40) #look for circles
 
 	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)   #converte rgb to hvs
-	lower = np.array([5,75,110])              #set lover accept boundury
-	upper = np.array([255,255,255])            #set higher accept boundury
+	lower = np.array([0,200,0])              #set lover accept boundury
+	upper = np.array([9,255,255])            #set higher accept boundury
 	mask = cv2.inRange(hsv, lower, upper)  #make mask of boundurys
 	res = cv2.bitwise_and(frame,frame, mask= mask) #get only desired color
 
