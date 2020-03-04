@@ -40,7 +40,11 @@ def on_message(client, userdata, msg):
       m.on_for_degrees(100,-100)
     
     if msg.payload.decode() == "PC":
-      m.on_for_degrees(100,100)
+      m.on_for_degrees(100,100) 
+    
+    if msg.payload.decode() == "J":
+      sound = Sound()
+      sound.speak('Watch out for Jakob!')
 
     
 

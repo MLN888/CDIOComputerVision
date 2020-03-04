@@ -3,7 +3,7 @@ import time
 import pynput
 #from pynput.keyboard import Key, Listener
 
-
+#1435mm
  
 def on_connect(client, userdata, flags, rc):
  
@@ -77,6 +77,16 @@ def on_press(key):
     if key == pynput.keyboard.KeyCode(char='e') and portOpen == True:
         print("Port CLOSE")
         client.publish("mads-ln@hotmail.dk/ev3test","PC")
+        portOpen = False
+    
+    if key == pynput.keyboard.KeyCode(char='e') and portOpen == True:
+        print("Port CLOSE")
+        client.publish("mads-ln@hotmail.dk/ev3test","PC")
+        portOpen = False
+
+    if key == pynput.keyboard.KeyCode(char='j'):
+        print("Jamie skal rydde op!")
+        client.publish("mads-ln@hotmail.dk/ev3test","J")
         portOpen = False
 
 def on_release(key):

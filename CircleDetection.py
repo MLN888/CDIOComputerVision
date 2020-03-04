@@ -6,7 +6,7 @@ import numpy as np
 #Test#2
 #Test 4
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(cv2.CAP_DSHOW + 1)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH,1920)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT,1080) 
 
@@ -38,7 +38,9 @@ while(True):
     
             # Draw a small circle (of radius 1) to show the center. 
             cv2.circle(frame, (a, b), 1, (0, 0, 255), 3) 
-    cv2.imshow("Detected Circle", frame) 
+    dim = (640, 360)
+    frame2 = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
+    cv2.imshow("Detected Circle", frame2) 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     continue
