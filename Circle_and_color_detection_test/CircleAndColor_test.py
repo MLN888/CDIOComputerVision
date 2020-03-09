@@ -8,7 +8,7 @@
 #												   #
 # auther:       Phillip Bomholtz                   #
 # created:      26-02-2020						   #
-# last updated: 04-03-2020						   #
+# last updated: 09-03-2020						   #
 #												   #
 ####################################################
 
@@ -53,7 +53,14 @@ while(True):
         start_point_y = y+(h*y_rel)
         end_point_x = start_point_x + (w-(w*x_rel)*2)
         end_point_y = start_point_y + (h-(h*y_rel)*2)
-        cv2.rectangle(flem, (int(start_point_x),int(start_point_y)), (int(end_point_x),int(end_point_y)), (0,255,0), 2)
+        cv2.rectangle(flem, (int(start_point_x),int(start_point_y)), (int(end_point_x),int(end_point_y)), (0,255,0), 2) #draw field box
+
+        cv2.circle(flem, (int(start_point_x), int(start_point_y)), 7, (255, 0, 0), 2)  #draw top left
+        cv2.circle(flem, (int(start_point_x + (w-(w*x_rel)*2)), int(start_point_y)), 7, (255, 0, 0), 2) #draw top right
+        cv2.circle(flem, (int(start_point_x), int(start_point_y + (h-(h*y_rel)*2))), 7, (255, 0, 0), 2) #draw bottom left
+        cv2.circle(flem, (int(start_point_x + (w-(w*x_rel)*2)), int(start_point_y+(h-(h*y_rel)*2))), 7, (255, 0, 0), 2) #draw bottom right
+
+        
 
 
 	#if any circles
@@ -65,7 +72,7 @@ while(True):
 
           #  a, b, r = pt[0], pt[1], pt[2]  #circle coordinates
           #  cv2.circle(frame, (a, b), r+10, (0, 255, 255), 2)  #draw area around with radius r
-         #   cv2.circle(frame, (a, b), 1, (100, 0, 100), 3)  #draw dot im middle
+          #  cv2.circle(frame, (a, b), 1, (100, 0, 100), 3)  #draw dot im middle
 
 
     #cv2.imshow('circles',frame)
