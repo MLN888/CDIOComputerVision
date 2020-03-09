@@ -29,9 +29,9 @@ while(True):
     flem = cv2.imread(os.path.abspath("Circle_and_color_detection_test/Test_field_foto.jpg"),1)
 
 
-    #lul = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  #greyscale
-    #lul2 = cv2.blur(lul, (3, 3)) 
-    #detected_circles = cv2.HoughCircles(lul2, cv2.HOUGH_GRADIENT, 1, 20, param1 = 50, param2 = 30, minRadius = 1, maxRadius = 40) #look for circles
+    lul = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  #greyscale
+    lul2 = cv2.blur(lul, (3, 3)) 
+    detected_circles = cv2.HoughCircles(lul2, cv2.HOUGH_GRADIENT, 1, 20, param1 = 50, param2 = 30, minRadius = 1, maxRadius = 40) #look for circles
 
     hsv = cv2.cvtColor(flem, cv2.COLOR_BGR2HSV)   #converte rgb to hvs
     lower = np.array([0,220,200])              #set lover accept boundury
@@ -64,20 +64,19 @@ while(True):
 
 
 	#if any circles
-    #if detected_circles is not None:
-        #detected_circles = np.uint16(np.around(detected_circles))
+    if detected_circles is not None:
+        detected_circles = np.uint16(np.around(detected_circles))
 
 		#for all cirlces
-        #for pt in detected_circles[0, :]:
+        for pt in detected_circles[0, :]:
 
-          #  a, b, r = pt[0], pt[1], pt[2]  #circle coordinates
-          #  cv2.circle(frame, (a, b), r+10, (0, 255, 255), 2)  #draw area around with radius r
-          #  cv2.circle(frame, (a, b), 1, (100, 0, 100), 3)  #draw dot im middle
+            a, b, r = pt[0], pt[1], pt[2]  #circle coordinates
+            cv2.circle(frame, (a, b), r+10, (0, 255, 255), 2)  #draw area around with radius r
+            cv2.circle(frame, (a, b), 1, (100, 0, 100), 3)  #draw dot im middle
 
 
     #cv2.imshow('circles',frame)
-    cv2.imshow('cross',cv2.resize(flem, (960, 540)))
-    #cv2.imshow('border',res)
+    cv2.imshow('Field',cv2.resize(flem, (960, 540)))
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
