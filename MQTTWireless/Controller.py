@@ -85,7 +85,7 @@ def on_press(key):
         portOpen = False
 
     if key == pynput.keyboard.KeyCode(char='j'):
-        print("Jamie skal rydde op!")
+        print("Pas paa Jakob!")
         client.publish("mads-ln@hotmail.dk/ev3test","J")
         portOpen = False
 
