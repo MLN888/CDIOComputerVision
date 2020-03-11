@@ -42,6 +42,7 @@ while(True):
     rgb = cv2.cvtColor(res, cv2.COLOR_HSV2BGR)
     grayed = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY)
 
+
     contours,_ = cv2.findContours(grayed, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
     #reletevistic characteristics for coordinate estimation. Subject to change!
