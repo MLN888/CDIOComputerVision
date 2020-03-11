@@ -42,11 +42,11 @@ while(True):
     rgb = cv2.cvtColor(res, cv2.COLOR_HSV2BGR)
     grayed = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY)
 
-    contours,_ = cv2.findContours(grayed, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    contours,_ = cv2.findContours(grayed, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     #reletevistic characteristics for coordinate estimation. Subject to change!
-    x_rel = 0.05 
-    y_rel = 0.05
+    x_rel = 0.00
+    y_rel = 0.00
     for contour in contours:
         (x,y,w,h) = cv2.boundingRect(contour)
         if w*h > 100:
