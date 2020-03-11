@@ -37,14 +37,14 @@ def on_message(client, userdata, msg):
       tank_drive.on(100,100)
 
     if msg.payload.decode() == "PO":
-      m.on_for_degrees(100,-100)
+      m.on_for_degrees(50,-100)
     
     if msg.payload.decode() == "PC":
-      m.on_for_degrees(100,100) 
+      m.on_for_degrees(50,100) 
     
     if msg.payload.decode() == "J":
       sound = Sound()
-      sound.speak('Watch out for Jakob!')
+      sound.speak('Pas paa Jacob!')
 
     
 
